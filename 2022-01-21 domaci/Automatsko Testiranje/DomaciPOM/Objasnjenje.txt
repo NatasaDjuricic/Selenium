@@ -1,0 +1,49 @@
+-Prvo sam otvorila pakete: Base, Pages i Test
+-Zatim sam u paketu Base napravila klasu BasePage gde sam setovala driver u @BeforeClass anotaciji
+i u @AfterClass anotaciji napisala metod za brisanje kolacica, zatvaranje tabova, zatvaranje browsera
+- Zatim u Test Paketu, napravila TestLogin klasu (koju sam extendovala iz BasePage klase) i gde sam napravila anotaciju @BeforeMethod (za setovanje stranice) i jednu probnu @Test anotaciju gde sam samo otisla na stranicu koju testiram da vidim da li samdosadasnje postavke dobro napisala
+-Sad u Pages paketu pravim klase svih stranica koje ce mi biti potrebne:
+LoginPage i LogoutPage
+- u LoginPage sam pored drivera extendovanih iz BasePAge dodala sve elemente sa te stranice koji ce mi trebati (username placeholder, password placeholder, login button, error message),
+napravila konstruktor za drivere, a u za elemente napravila getere gde sam ih pronasla pomocu findElemet.
+Napravila sam metode za: input username-a, passworda, klik na login button, citanje poruke iz Error Message.
+-U LogoutPage sam isto kao u LogIn page napravila WebElemente koji mi trebaju (react burger menu button i logout sidebarlink), napravila konstruktor za driver i wdwait, gettere za elemente i metode za akcije nad elementima
+-Zatim sam se vratila u BasePage i dodala LoginPage i LogOutPage.
+-U TestLoginu sad pravim testove:
+
+1. Verify that User Can Login
+
+- input valid username
+- input valid password
+- click on login Button
+
+Tu smo se ulogovali i sada proveravam da li sam se ulogovala
+(Trazim Logout button)
+
+-Moram prvo da kliknem na React Burger Menu Button
+Tu sada gledam da li postoji nesto sto je logout. Ima link za logout.
+Uzimam text sa tog linka i poredim da li tu pise "LOGOUT".
+Sve sam stavila u upper casse u slucaju da se case ne poklapa. Ovde mogu jos da dodam i da li ima razmak neki ili neki space.
+Vrsim jos jednu proveru - da li sam na trazenoj URL adresi.
+Promenila sam uslove u suprotne da vidim da li ce test da padne i kada se uverila da je ok vratila ih u prvobitno stanje.
+
+2. Verify that user cannot login with invalid username
+
+-input invalid username
+-input valid password
+-click on Login Button
+
+-proverila sam da li izlazi error message
+-nisam iz nekog razloga mogla da iscitam text iz error message pa nisam mogla da uporedim sa expected
+-proveravam da li je URL isti kao expected
+-i da li na stranici postoji login button
+
+
+
+
+
+
+
+
+
+
